@@ -1,19 +1,16 @@
 import React from "react";
 import styled, { css, keyframes } from "styled-components";
+
 const Container = styled.section`
-  @import url("https://fonts.googleapis.com/css2?family=Otomanopee+One&display=swap");
   width: 100%;
-  height: 100vh;
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
-  font-family: "Otomanopee One", sans-serif;
 `;
 
 const H1 = styled.h1`
   color: ${(props) => props.color || "#222831"};
-  font-size: 3rem;
+  font-size: 3.3rem;
   font-weight: 900;
 `;
 
@@ -65,27 +62,31 @@ const Loading = styled.div`
   }
 `;
 
-const P = styled.p`
+const Text = styled.p`
   color: #939597;
   position: relative;
   display: flex;
   align-items: center;
   flex-direction: column;
+`;
+const Div = styled.div`
+  padding: 2rem 0;
+  text-align: center;
+`;
+const TextDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   &::before {
     content: "";
     display: block;
     background: #f5df4d;
     width: 50px;
     height: 5px;
-    left: 30%;
     margin-bottom: 2rem;
   }
 `;
-const Div = styled.div`
-  padding: 2rem 0;
-  text-align: center;
-`;
-const TextDiv = styled.div``;
+
 const Greet = (props) => {
   if (false) {
     return (
@@ -102,7 +103,10 @@ const Greet = (props) => {
         <H1>Frontend Developer</H1>
       </Div>
       <TextDiv>
-        <P>안녕하세요 반갑습니다.</P>
+        <Text>Loasdlkasdlaksdlaskd laskdlaskdl askdlasdkalsdk</Text>
+        <Text>Loasdlkasdlaksdlaskd laskdlaskdl.</Text>
+        <Text>Loasdlkasdlaksdlaskd laskdlaskdl.</Text>
+        <Text>Loasdlkasdlaksdlaskd laskdlaskdl.</Text>
       </TextDiv>
     </Container>
   );
