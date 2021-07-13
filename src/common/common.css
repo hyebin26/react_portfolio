@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Otomanopee+One&family=Tourney:ital,wght@1,300;1,900&display=swap");
 
-@value color_main #F5dF4D;
-@value color_sub #939597;
+@value --color_main #F5dF4D;
+@value --color_sub #939597;
 
-@value font-family: "Otomanopee One", sans-serif;
-@value font_title font-family: 'Tourney', cursive;
+@value --font_main "Otomanopee One", sans-serif;
+@value --font_title font-family: 'Tourney', cursive;
