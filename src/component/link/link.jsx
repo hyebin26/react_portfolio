@@ -11,7 +11,6 @@ const A = styled.a`
 `;
 
 const Link = ({ children, ...rest }) => {
-  console.log(rest);
   return (
     <A href="#" {...rest}>
       {children}
