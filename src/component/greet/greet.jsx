@@ -1,11 +1,14 @@
 import React from "react";
 import styled, { css, keyframes } from "styled-components";
+import SocialIcon from "../socialIcon/socialIcon";
 
 const Container = styled.section`
   width: 100%;
   display: flex;
   align-items: center;
   flex-direction: column;
+  position: relative;
+  padding: 1.5rem 0;
 `;
 
 const H1 = styled.h1`
@@ -108,6 +111,7 @@ const Greet = (props) => {
         <Text>Loasdlkasdlaksdlaskd laskdlaskdl.</Text>
         <Text>Loasdlkasdlaksdlaskd laskdlaskdl.</Text>
       </TextDiv>
+      <SocialIcon />
     </Container>
   );
 };
