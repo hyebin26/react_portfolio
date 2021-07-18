@@ -2,7 +2,7 @@ import "./App.css";
 import Greet from "./component/greet/greet";
 import styled, { createGlobalStyle } from "styled-components";
 import Nav from "./component/nav/nav";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { useIntersection } from "react-use";
 import gsap from "gsap";
 
@@ -44,62 +44,51 @@ const Section = styled.section`
   scroll-snap-align: start;
   scroll-snap-stop: normal;
   background: ${(props) => (props.color ? props.color : " white")};
-  display: flex;
-  align-items: center;
 `;
 const H2 = styled.h2`
   text-align: center;
 `;
 function App() {
-  const sectionRef = useRef([]);
+  const section1Ref = useRef(null);
+  const section2Ref = useRef(null);
+  const section3Ref = useRef(null);
 
-  const fadeIn = (element) => {
-    gsap.to(element, 1, {
-      opacity: 1,
-      y: -80,
-      duration: 0.1,
-    });
-  };
-  const fadeOut = (element) => {
-    gsap.to(element, 1, {
-      opacity: 0,
-      y: -50,
-      ease: "power4.out",
-    });
-  };
-
-  const intersectionCallback = (entries, observer) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        fadeIn(".text");
-      } else {
-        fadeOut(".text");
-      }
-    });
-  };
   const option = {
     root: null,
     rootMargin: "0px",
     threshold: 1,
   };
-  const intersection = useIntersection((entries, observer) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        fadeIn(".text");
-      } else {
-        fadeOut(".text");
-      }
+
+  const section1Intersection = useIntersection(section1Ref, option);
+  const section2Intersection = useIntersection(section2Ref, option);
+  const section3Intersection = useIntersection(section3Ref, option);
+
+  const fadeIn = (element) => {
+    gsap.to(element, 1, {
+      opacity: 1,
+      y: -60,
+      ease: "power4.out",
+      stagger: {
+        amount: 0.3,
+      },
     });
-  }, option);
-  // intersection && intersection.isIntersecting
-  //   ? fadeIn(".text")
-  //   : fadeOut(".text");
-  const test = () => {
-    console.log(sectionRef.current[0]);
   };
-  useEffect(() => {
-    sectionRef.current.map((item) => intersection(item));
-  }, []);
+  const fadeOut = (element) => {
+    gsap.to(element, 1, {
+      opacity: 0,
+      y: -20,
+      ease: "power4.out",
+    });
+  };
+  section1Intersection && section1Intersection.isIntersecting
+    ? fadeIn(".text1")
+    : fadeOut(".text1");
+  section2Intersection && section2Intersection.isIntersecting
+    ? fadeIn(".text2")
+    : fadeOut(".text2");
+  section3Intersection && section3Intersection.isIntersecting
+    ? fadeIn(".text3")
+    : fadeOut(".text3");
   return (
     <Wrapper>
       <Section>
@@ -107,19 +96,18 @@ function App() {
         <Nav />
         <Greet />
       </Section>
-      <Section ref={(el, index) => (sectionRef.current[0] = el)} color="orange">
-        <H2 className="text">
-          안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
-        </H2>
-        <button onClick={test}>헳로</button>
-      </Section>
-      <Section color="lightgray" ref={(el) => (sectionRef.current[1] = el)}>
-        <H2 className="text">
+      <Section color="orange" ref={section1Ref}>
+        <H2 className="text1">
           안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
         </H2>
       </Section>
-      <Section color="violet" ref={(el) => (sectionRef.current[2] = el)}>
-        <H2 className="text">
+      <Section color="lightgray" ref={section2Ref}>
+        <H2 className="text2">
+          안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+        </H2>
+      </Section>
+      <Section color="violet" ref={section3Ref}>
+        <H2 className="text3">
           안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
         </H2>
       </Section>
