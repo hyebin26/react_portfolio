@@ -91,7 +91,7 @@ function App() {
     : fadeOut(".text3");
   return (
     <Wrapper>
-      <Section>
+      <Section ref={section1Ref}>
         <GlobalStyle />
         <Nav />
         <Greet />

@@ -24,6 +24,7 @@ const LoadingContainer = styled.section`
   justify-content: center;
   align-items: center;
   background: #222831;
+  overflow: hidden;
 `;
 const spin = keyframes`
   to {
@@ -106,10 +107,11 @@ const Greet = (props) => {
         <H1>Frontend Developer</H1>
       </Div>
       <TextDiv>
-        <Text>Loasdlkasdlaksdlaskd laskdlaskdl askdlasdkalsdk</Text>
-        <Text>Loasdlkasdlaksdlaskd laskdlaskdl.</Text>
-        <Text>Loasdlkasdlaksdlaskd laskdlaskdl.</Text>
-        <Text>Loasdlkasdlaksdlaskd laskdlaskdl.</Text>
+        <Text>UI/UX에 관심이 많은 주니어 프론트 개발자 황혜빈입니다.</Text>
+        <Text>반응형 웹사이트, 웹 애플리케이션을 개발하고 배포하며</Text>
+        <Text>
+          사용자 중심적으로 생각하고 더 좋은 앱을 만들기 위해 노력하고 있습니다.
+        </Text>
       </TextDiv>
       <SocialIcon />
     </Container>

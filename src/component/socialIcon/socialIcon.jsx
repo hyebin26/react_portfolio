@@ -23,6 +23,9 @@ const SocialLink = styled.a`
   .git {
     font-size: 1.7rem;
   }
+  &:hover {
+    box-shadow: 3px 0px 10px 0px #9c9c9c, 10px 0px 0px 0px rgb(0 0 3 / 0%);
+  }
 `;
 
 const SocialIcon = (props) => {
