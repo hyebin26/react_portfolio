@@ -12,11 +12,10 @@ const GlobalStyle = createGlobalStyle`
     margin:0;
     box-sizing:border-box;
   }
-  html{
-    scroll-behavior: smooth;
-  }
+  
   body{
     font-family: 'Otomanopee One', sans-serif ;
+    scroll-behavior: smooth;
   }
   a{
     text-decoration:none;
@@ -44,9 +43,11 @@ const Section = styled.section`
   scroll-snap-align: start;
   scroll-snap-stop: normal;
   background: ${(props) => (props.color ? props.color : " white")};
+  transition: 0.3s;
 `;
 const H2 = styled.h2`
   text-align: center;
+  color: blue;
 `;
 function App() {
   const section1Ref = useRef(null);
@@ -80,14 +81,22 @@ function App() {
       ease: "power4.out",
     });
   };
+
   section1Intersection && section1Intersection.isIntersecting
     ? fadeIn(".text1")
     : fadeOut(".text1");
+
   section2Intersection && section2Intersection.isIntersecting
     ? fadeIn(".text2")
     : fadeOut(".text2");
+  section2Intersection && section2Intersection.isIntersecting
+    ? (section2Ref.current.style = "background :#222831")
+    : fadeOut(".text2");
   section3Intersection && section3Intersection.isIntersecting
     ? fadeIn(".text3")
+    : fadeOut(".text3");
+  section3Intersection && section3Intersection.isIntersecting
+    ? (section3Ref.current.style = "background :#222831")
     : fadeOut(".text3");
   return (
     <Wrapper>
@@ -96,17 +105,17 @@ function App() {
         <Nav />
         <Greet />
       </Section>
-      <Section color="orange" ref={section1Ref}>
+      <Section ref={section1Ref}>
         <H2 className="text1">
           안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
         </H2>
       </Section>
-      <Section color="lightgray" ref={section2Ref}>
+      <Section ref={section2Ref}>
         <H2 className="text2">
           안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
         </H2>
       </Section>
-      <Section color="violet" ref={section3Ref}>
+      <Section ref={section3Ref}>
         <H2 className="text3">
           안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
         </H2>
