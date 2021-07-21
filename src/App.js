@@ -1,65 +1,58 @@
 import "./App.css";
 import styled, { createGlobalStyle } from "styled-components";
+import Greet from "./component/greet/greet";
+import Nav from "./component/nav/nav";
+import SocialIcon from "./component/socialIcon/socialIcon";
 
 const GlobalStyle = createGlobalStyle`
   *{
     padding:0;
     margin:0;
     box-sizing:border-box;
+    overflow-x:hidden;
+    &::-webkit-scrollbar {
+      width: 12px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: black; 
+      border-radius: 2px;
+    };
   }
-  
   body{
     font-family: 'Otomanopee One', sans-serif ;
-    scroll-behavior: smooth;
-    scrollbar-color: black;
-    scrollbar-width: thin;
-    scrollbar-track-color: #fff;
-  }
+   
   a{
     text-decoration:none;
+    color:black;
   }
   li{
     list-style:none;
   }
   svg{
-    color:white;
-    font-size:1.5rem;
+    font-size: 2rem;
 `;
 
-const Greeting = styled.div``;
-const ImgBox = styled.div``;
-const H2 = styled.h2``;
-
-const Wrapper = styled.section`
-  overflow: scroll;
-  &::-webkit-scrollbar {
-    width: 5px; /*스크롤바의 너비*/
-  }
-  &::-webkit-scrollbar-thumb {
-    background-color: black; /*스크롤바의 색상*/
-  }
+const Wrapper = styled.div`
+  display: flex;
 `;
+const SocialContainer = styled.div`
+  flex: 1 0 10%;
+`;
+const ContentContainer = styled.div`
+  flex: 1 0 90%;
+`;
+
 function App() {
   return (
     <Wrapper>
       <GlobalStyle />
-      <Greeting />
-      <H2>h2</H2>
-      <H2>h2</H2>
-      <H2>h2</H2>
-      <H2>h2</H2>
-      <H2>h2</H2>
-      <H2>h2</H2>
-      <H2>h2</H2>
-      <H2>h2</H2>
-      <H2>h2</H2>
-      <H2>h2</H2>
-      <H2>h2</H2>
-      <H2>h2</H2>
-      <H2>h2</H2>
-      <H2>h2</H2>
-      <H2>h2</H2>
-      <ImgBox />
+      <SocialContainer>
+        <SocialIcon />
+      </SocialContainer>
+      <ContentContainer>
+        <Nav />
+        <Greet />
+      </ContentContainer>
     </Wrapper>
   );
 }

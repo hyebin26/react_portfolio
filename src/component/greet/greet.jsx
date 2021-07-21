@@ -1,120 +1,50 @@
 import React from "react";
-import styled, { css, keyframes } from "styled-components";
-import SocialIcon from "../socialIcon/socialIcon";
+import styled from "styled-components";
 
-const Container = styled.section`
-  width: 100%;
+const GreetWrapper = styled.section`
   display: flex;
-  align-items: center;
-  flex-direction: column;
-  position: relative;
-  padding: 1.5rem 0;
-`;
-
-const H1 = styled.h1`
-  color: ${(props) => props.color || "#222831"};
-  font-size: 3.3rem;
-  font-weight: 900;
-`;
-
-const LoadingContainer = styled.section`
-  width: 100%;
+  padding-left: 1rem;
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #222831;
-  overflow: hidden;
+  padding: 7rem 0;
 `;
-const spin = keyframes`
-  to {
-    transform: rotate(360deg);
-  }
+const TextContainer = styled.div`
+  flex: 1 0 55%;
+  font-family: "Do Hyeon", sans-serif;
 `;
-
-const animation = css`
-  ${spin} 1.5s infinite linear;
+const ImgContainer = styled.div`
+  flex: 1 0 45%;
 `;
-
-const Loading = styled.div`
-  --clock-color: #F5dF4D;
-  --clock-width: 3rem;
-  --clock-radius: calc(var(--clock-width) / 2);
-  --clock-minute-length: calc(var(--clock-width) * 0.4);
-  --clock-hour-length: calc(var(--clock-width) * 0.2);
-  --clock-thickness: 0.2rem;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: var(--clock-width);
-  height: var(--clock-width);
-  border: 5px solid #F5dF4D;
-  border-radius: 50%;
-  animation:${animation}
-  &::after {
-    position: absolute;
-    content: "";
-    top: calc(var(--clock-radius) * 0.05);
-    width: var(--clock-thickness);
-    background: #F5dF4D;
-    border-radius: 10px;
-    transform-origin: center calc(100% - calc(var(--clock-thickness) / 2));
-  }
-  &::after {
-    height: var(--clock-minute-length);
-  }
+const GreetImg = styled.img`
+  width: 250px;
 `;
-
-const Text = styled.p`
-  color: #939597;
-  position: relative;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
+const TextFirst = styled.h1`
+  font-size: 2rem;
 `;
-const Div = styled.div`
-  padding: 2rem 0;
-  text-align: center;
-`;
-const TextDiv = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  &::before {
-    content: "";
-    display: block;
-    background: #f5df4d;
-    width: 50px;
-    height: 5px;
-    margin-bottom: 2rem;
-  }
+const ThumbImg = styled.img`
+  width: 35px;
 `;
 
 const Greet = (props) => {
-  if (false) {
-    return (
-      <LoadingContainer>
-        <Loading></Loading>
-      </LoadingContainer>
-    );
-  }
   return (
-    <Container>
-      <Div>
-        <H1 color="#F5dF4D">2021</H1>
-        <H1>Hyebin Hwang</H1>
-        <H1>Frontend Developer</H1>
-      </Div>
-      <TextDiv>
-        <Text>UI/UX에 관심이 많은 주니어 프론트 개발자 황혜빈입니다.</Text>
-        <Text>반응형 웹사이트, 웹 애플리케이션을 개발하고 배포하며</Text>
-        <Text>
-          사용자 중심적으로 생각하고 더 좋은 앱을 만들기 위해 노력하고 있습니다.
-        </Text>
-      </TextDiv>
-      <SocialIcon />
-    </Container>
+    <GreetWrapper>
+      <TextContainer>
+        <TextFirst>안녕하세요</TextFirst>
+        <TextFirst>저는 프론트엔드 개발자 황혜빈이라고 합니다</TextFirst>
+        <TextFirst>
+          웹을 개발하고 배포하면서 프론트엔드에 대해 공부하고있습니다.
+        </TextFirst>
+        <TextFirst>
+          또한 백엔드에도 관심을 가지고 전체적인 개발에 관심이 있습니다.
+        </TextFirst>
+        <TextFirst>
+          페이지에 방문해주셔서 감사합니다.
+          <ThumbImg src="./img/thumb.png" alt="thumbs up" />
+        </TextFirst>
+      </TextContainer>
+      <ImgContainer>
+        <GreetImg src="./img/d.jpg" alt="" />
+      </ImgContainer>
+    </GreetWrapper>
   );
 };
 

@@ -1,43 +1,53 @@
 import React from "react";
-import { FiGithub } from "react-icons/fi";
+import { AiFillGithub } from "react-icons/ai";
 import { SiNotion } from "react-icons/si";
 import styled from "styled-components";
 
-const SocialDiv = styled.div`
-  position: fixed;
-  display: flex;
-  flex-direction: column;
-  left: -25px;
-  top: 45%;
+const SocialWrapper = styled.section`
+  position: relative;
 `;
-
 const SocialLink = styled.a`
-  width: 50px;
-  height: 50px;
-  background: #f5df4d;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 20px;
-  .git {
-    font-size: 1.7rem;
-  }
+  display: block;
+  transition: 0.3s;
   &:hover {
-    box-shadow: 3px 0px 10px 0px #9c9c9c, 10px 0px 0px 0px rgb(0 0 3 / 0%);
+    color: #00eb7f;
   }
+`;
+const H4 = styled.h2`
+  padding: 1.5rem;
+`;
+const SocialUl = styled.ul`
+  position: fixed;
+  bottom: 50px;
+  text-align: center;
+  left: 30px;
+`;
+const SocialList = styled.li`
+  padding-top: 0.8rem;
+`;
+const SoclaiTitle = styled.p`
+  text-decoration: underline;
 `;
 
 const SocialIcon = (props) => {
   return (
-    <SocialDiv>
-      <SocialLink href="#">
-        <FiGithub className="git" />
-      </SocialLink>
-      <SocialLink href="#">
-        <SiNotion />
-      </SocialLink>
-    </SocialDiv>
+    <SocialWrapper>
+      <H4>Logo</H4>
+      <SocialUl>
+        <SocialList>
+          <SocialLink href="#">
+            <AiFillGithub className="git" />
+            <SoclaiTitle>Github</SoclaiTitle>
+          </SocialLink>
+        </SocialList>
+        <SocialList>
+          <SocialLink href="#">
+            <SiNotion />
+            <SoclaiTitle>Notion</SoclaiTitle>
+          </SocialLink>
+        </SocialList>
+      </SocialUl>
+    </SocialWrapper>
   );
 };
 

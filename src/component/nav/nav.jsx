@@ -1,44 +1,40 @@
 import React from "react";
 import styled from "styled-components";
-import Link from "../link/link";
 
-const Container = styled.section`
-  padding: 2rem 5rem;
-  display: flex;
-  justify-content: space-between;
-`;
-
+const NavWrapper = styled.section``;
 const NavUl = styled.ul`
   display: flex;
 `;
-
-const NavLi = styled.li`
-  padding-left: 1rem;
+const NavList = styled.li`
+  padding: 1.5rem 1rem;
+`;
+const NavLink = styled.a`
+  cursor: pointer;
+  color: black;
+  transition: 0.2s;
+  &:hover {
+    color: #00eb7f;
+  }
 `;
 
 const Nav = (props) => {
-  const test = (e) => {
-    e.preventDefault();
-    alert("good");
-  };
   return (
-    <Container>
-      <Link onClick={test}>Hyebin</Link>
+    <NavWrapper>
       <NavUl>
-        <NavLi>
-          <Link>About Me</Link>
-        </NavLi>
-        <NavLi>
-          <Link>Project</Link>
-        </NavLi>
-        <NavLi>
-          <Link>Skils</Link>
-        </NavLi>
-        <NavLi>
-          <Link>Contact</Link>
-        </NavLi>
+        <NavList>
+          <NavLink href="#">Home</NavLink>
+        </NavList>
+        <NavList>
+          <NavLink href="#">About me</NavLink>
+        </NavList>
+        <NavList>
+          <NavLink href="#">Project</NavLink>
+        </NavList>
+        <NavList>
+          <NavLink href="#">Contact</NavLink>
+        </NavList>
       </NavUl>
-    </Container>
+    </NavWrapper>
   );
 };
 
