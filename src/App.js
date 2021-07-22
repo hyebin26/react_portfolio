@@ -3,6 +3,7 @@ import styled, { createGlobalStyle } from "styled-components";
 import Greet from "./component/greet/greet";
 import Nav from "./component/nav/nav";
 import SocialIcon from "./component/socialIcon/socialIcon";
+import Project from "./component/project/project";
 
 const GlobalStyle = createGlobalStyle`
   *{
@@ -52,6 +53,7 @@ function App() {
       <ContentContainer>
         <Nav />
         <Greet />
+        <Project />
       </ContentContainer>
     </Wrapper>
   );

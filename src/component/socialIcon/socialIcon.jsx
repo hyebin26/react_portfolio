@@ -4,7 +4,7 @@ import { SiNotion } from "react-icons/si";
 import styled from "styled-components";
 
 const SocialWrapper = styled.section`
-  position: relative;
+  position: fixed;
 `;
 const SocialLink = styled.a`
   display: block;

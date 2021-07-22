@@ -34,9 +34,6 @@ const Greet = (props) => {
           웹을 개발하고 배포하면서 프론트엔드에 대해 공부하고있습니다.
         </TextFirst>
         <TextFirst>
-          또한 백엔드에도 관심을 가지고 전체적인 개발에 관심이 있습니다.
-        </TextFirst>
-        <TextFirst>
           페이지에 방문해주셔서 감사합니다.
           <ThumbImg src="./img/thumb.png" alt="thumbs up" />
         </TextFirst>
