@@ -1,15 +1,20 @@
 import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
-import gsap from "gsap";
-import scrollTrigger from "gsap/ScrollTrigger";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 // Scroll들어오면 배경색 바꾸고 => 호라이즌 슬라이드
 
 const ProjectWrapper = styled.section``;
-const ProjectUl = styled.ul``;
+const ProjectUl = styled.ul`
+  width: 600%;
+  height: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+`;
 const ProjectLi = styled.li`
-  width: 100%;
-  height: 100vh;
+  width: 50%;
   display: flex;
 `;
 const ProjectImg = styled.img`
@@ -24,33 +29,43 @@ const ProjectTextBox = styled.div`
 const ProjectText = styled.p``;
 
 const Project = (props) => {
-  const ulRef = useRef();
-  let sections = gsap.utils.toArray(".item");
+  const ulRef = useRef(null);
+  const listRef = useRef([]);
+
+  const createLinetRefs = (el, index) => {
+    listRef.current[index] = el;
+  };
+
   useEffect(() => {
-    gsap.to(".project2", {
-      backgroundColor: "black",
+    const element = ulRef.current;
+    gsap.to(element.querySelector(".project2"), {
       scrollTrigger: {
-        trigger: "project2",
+        trigger: element.querySelector(".project2"),
+        toggleActions: "restart pause restart reset",
+      },
+      duration: 0.5,
+      backgroundColor: "black",
+      ease: "none",
+    });
+
+    const totalLength = listRef.current.length;
+    gsap.to(listRef.current, {
+      xPercent: -100 * (totalLength - 1),
+      ease: "none",
+      scrollTrigger: {
+        trigger: element,
+        pin: true,
+        scrub: 1,
+        snap: 1 / (totalLength - 1),
+        // base vertical scrolling on how wide the container is so it feels more natural.
+        end: () => "+=" + element.offsetWidth,
       },
     });
   }, []);
-  useEffect(() => {}, [
-    gsap.to(sections, {
-      xPercent: -100 * (sections.length - 1),
-      ease: "none",
-      scrollTrigger: {
-        trigger: ".itemBox",
-        pin: true,
-        scrub: 1,
-        snap: 1 / (sections.length - 1),
-        end: () => "+=" + ulRef.current.offsetWidth,
-      },
-    }),
-  ]);
   return (
     <ProjectWrapper>
       <ProjectUl ref={ulRef} className="itemBox">
-        <ProjectLi className="item project1">
+        <ProjectLi ref={(e) => createLinetRefs(e, 0)} className="project1">
           <ProjectImgBox>
             <ProjectImg src="./img/d.jpg" />
           </ProjectImgBox>
@@ -63,7 +78,7 @@ const Project = (props) => {
             </ProjectText>
           </ProjectTextBox>
         </ProjectLi>
-        <ProjectLi className="item project2">
+        <ProjectLi ref={(e) => createLinetRefs(e, 1)} className="project2">
           <ProjectImgBox>
             <ProjectImg src="./img/d.jpg" />
           </ProjectImgBox>
@@ -76,7 +91,7 @@ const Project = (props) => {
             </ProjectText>
           </ProjectTextBox>
         </ProjectLi>
-        <ProjectLi className="item project3">
+        <ProjectLi ref={(e) => createLinetRefs(e, 2)} className="project3">
           <ProjectImgBox>
             <ProjectImg src="./img/d.jpg" />
           </ProjectImgBox>
@@ -89,7 +104,7 @@ const Project = (props) => {
             </ProjectText>
           </ProjectTextBox>
         </ProjectLi>
-        <ProjectLi className="item project4">
+        <ProjectLi ref={(e) => createLinetRefs(e, 3)} className="project4">
           <ProjectImgBox>
             <ProjectImg src="./img/d.jpg" />
           </ProjectImgBox>
