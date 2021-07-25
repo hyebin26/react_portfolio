@@ -4,6 +4,7 @@ import Greet from "./component/greet/greet";
 import Nav from "./component/nav/nav";
 import SocialIcon from "./component/socialIcon/socialIcon";
 import Project from "./component/project/project";
+import About from "./component/about/about";
 
 const GlobalStyle = createGlobalStyle`
   *{
@@ -54,6 +55,7 @@ function App() {
         <Nav />
         <Greet />
         <Project />
+        <About />
       </ContentContainer>
     </Wrapper>
   );
