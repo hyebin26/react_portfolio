@@ -16,7 +16,6 @@ const ProjectUl = styled.ul`
 const ProjectLi = styled.li`
   width: 100%;
   display: flex;
-  border-radius: 1%;
   padding: 8rem 80px;
 `;
 const ProjectImg = styled.img`
@@ -25,14 +24,12 @@ const ProjectImg = styled.img`
 `;
 const ProjectImgBox = styled.div`
   display: flex;
-  flex: 1 0 45%;
-  border: 1px solid black;
-  border-right: none;
+  flex: 1 0 55%;
+  border-radius: 1% 0 0 1%;
 `;
 const ProjectTextBox = styled.div`
-  flex: 1 0 55%;
-  border: 1px solid black;
-  border-left: none;
+  flex: 1 0 45%;
+  border-radius: 0 1% 1% 0;
 `;
 const ProjectText = styled.p``;
 
@@ -98,7 +95,7 @@ const Project = (props) => {
       <ProjectUl ref={ulRef} className="itemBox">
         <ProjectLi ref={(e) => createLinetRefs(e, 0)} className="project1">
           <ProjectImgBox>
-            <ProjectImg src="./img/d.jpg" />
+            <ProjectImg src="./img/hotel.gif" />
           </ProjectImgBox>
           <ProjectTextBox>
             <ProjectText className="text">
@@ -111,7 +108,7 @@ const Project = (props) => {
         </ProjectLi>
         <ProjectLi ref={(e) => createLinetRefs(e, 1)} className="project2">
           <ProjectImgBox>
-            <ProjectImg src="./img/d.jpg" />
+            <ProjectImg src="./img/review.gif" />
           </ProjectImgBox>
           <ProjectTextBox>
             <ProjectText>Section2</ProjectText>
@@ -119,7 +116,7 @@ const Project = (props) => {
         </ProjectLi>
         <ProjectLi ref={(e) => createLinetRefs(e, 2)} className="project3">
           <ProjectImgBox>
-            <ProjectImg src="./img/d.jpg" />
+            <ProjectImg src="./img/calendar.gif" />
           </ProjectImgBox>
           <ProjectTextBox>
             <ProjectText>
