@@ -8,22 +8,31 @@ const data = [
   {
     title: "Hotel Page Clone Coding",
     content:
-      "템플릿을 참고해서 만든 클론코딩 홈페이지입니다. Scss,바닐라 자바스크립트,HTMl을 사용했습니다. 구현한 페이지는 HOME,PROPERTY,PAGES 이며 바닐라 자바스크립트로 이미지 슬라이더, 비디오 팝업, 햄버거 내비게이션, 썸네일 이미지 등을 구현하였습니다. PROPERTY에 Google Maps API를 사용해서 지도를 가져왔습니다.",
+      "템플릿을 참고해서 만든 클론코딩 홈페이지입니다. Scss, 바닐라 자바스크립트, HTML을 사용했습니다. 페이지는 HOME, PROPERTY, PAGES 3페이지를 구현했습니다. 바닐라 자바스크립트로 이미지 슬라이더, 비디오 팝업, 햄버거 내비게이션, 썸네일 이미지 등을 구현하였습니다. 또한 PROPERTY페이지에서는 Google Maps API를 사용해서 지도를 구현했습니다.",
+    link: "https://hyebin26.github.io/clone_coding/",
+    sourceLink: "https://github.com/hyebin26/clone_coding",
   },
   {
     title: "Review Page",
     content:
       "영화와 독서의 기록을 남기기 위해 만든 게시판 형식의 페이지 입니다. NodeJs, Express, Mysql, 바닐라 자바스크립트를 이용해서 만들었습니다. 작성한 글, 댓글을 Mysql로 저장하여 관리하고 있습니다. 그리고 검색 부분은 검색을 하면 서버로 검색 내용을 전달하고 전달받은 내용 중 DB에 있는 제목, 내용과 일치하는 내용이 있으면 가져오는 것으로 구현했습니다. 또한 게시글이 점점 많아지면 페이지가 자동적으로 추가되는 페이지네이션을 추가했습니다. 그리고 회원가입과 로그인 또한 DB를 통해 관리합니다. 또한 Cloudynary API를 통해 이미지를 업로드하는 기능을 추가했습니다. 서버는 Express를 사용해서 heroku에 배포하였고 어플리케이션 또한 js파일을 웹팩을 이용해 번들링 한 후 heroku에 배포하였습니다.",
+    link: "https://review-vanillajs.herokuapp.com/",
+    sourceLink: "https://github.com/hyebin26/vanillaJs_review",
+    sourceServerLink: "https://github.com/hyebin-Hwang/server_reviewJS",
   },
   {
     title: "Diet Calendar",
     content:
       "이 앱을 만든 이유는 다이어트를 할 때 자신의 키와 몸무게에 따른 권장 칼로리를 계산하고 그 권장 칼로리에 따른 결과를 기록하고 싶어서 만들었습니다. 우선 로그인은 firebase로 구현하였으며 firebase를 사용한 이유는 간단하게 로그인을 구현할 수 있고 firebase DB를 사용하기 편리하기 때문입니다. 메인페이지에서는 아침, 점심, 저녁 칼로리를 기록할 수 있으며, 권장 칼로리를 기준으로 더 많이 섭취할 시 칼로리를 표시하는 색을 빨간색으로 표시하게 했습니다. 그리고 사용자의 정보를 저장하고 관리하는 Database는 firebase에 realtime DB를 통해 구현하였습니다.",
+    link: "https://hyebin26.github.io/react-dietCalendar/",
+    sourceLink: "https://github.com/hyebin26/react-dietCalendar",
   },
   {
     title: "StockGame",
     content:
       "이 앱의 이유는 StockGame으로 간단하게 할 수 있는 모의주식 게임입니다. 로그인은 firebase, Database는 firebase에 realtime database를 사용하여 구현했습니다. 상태관리를 간편하게 하기 위해 reudx-toolkit을 사용했으며, 그래프를 그리는 것은 chart.js를 사용했습니다.",
+    link: "https://hyebin26.github.io/react_stockgame/",
+    sourceLink: "https://github.com/hyebin26/react_stockgame",
   },
 ];
 
@@ -52,8 +61,28 @@ const ProjectImgBox = styled.div`
 const ProjectTextBox = styled.div`
   flex: 1 0 45%;
   border-radius: 0 1% 1% 0;
+  padding-left: 1.5rem;
+  font-family: "Gowun Dodum", sans-serif;
+  font-size: 1.1rem;
+  position: relative;
 `;
 const ProjectText = styled.p``;
+const Title = styled.h2`
+  color: #00eb7f;
+`;
+const Content = styled.p`
+  padding-top: 1.5rem;
+  color: #e0dfd5;
+`;
+const Link = styled.a`
+  text-decoration: underline;
+  color: #e0dfd5;
+`;
+const Span = styled.span``;
+const TextSmallBox = styled.div`
+  ${(props) => (props.link ? "bottom: 2rem;" : "bottom:0;")}
+  position: absolute;
+`;
 
 const Project = (props) => {
   const ulRef = useRef(null);
@@ -80,7 +109,6 @@ const Project = (props) => {
       },
     });
   }, []);
-  useEffect(() => {}, []);
   useEffect(() => {
     listRef.current.map((el, index) => {
       gsap.from(el, {
@@ -102,7 +130,6 @@ const Project = (props) => {
           toggleActions: "play none none reverse",
         },
         backgroundColor: "#222831",
-        color: "",
       });
     });
     listRef.current.map((el, index) => {
@@ -130,12 +157,16 @@ const Project = (props) => {
             <ProjectImg src="./img/hotel.gif" />
           </ProjectImgBox>
           <ProjectTextBox>
-            <ProjectText className="text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta
-              dolores doloremque voluptatem ex fugiat tempore mollitia quibusdam
-              assumenda animi eaque sint molestiae veniam praesentium,
-              repellendus asperiores quidem. Modi, debitis veniam?
-            </ProjectText>
+            <Title>{data[0].title}</Title>
+            <Content>{data[0].content}</Content>
+            <TextSmallBox link>
+              <Span>Link: </Span>
+              <Link href={data[0].link}>{data[0].link}</Link>
+            </TextSmallBox>
+            <TextSmallBox>
+              <Span>Source Link: </Span>
+              <Link href={data[0].sourceLink}>{data[0].sourceLink}</Link>
+            </TextSmallBox>
           </ProjectTextBox>
         </ProjectLi>
         <ProjectLi ref={(e) => createLinetRefs(e, 1)} className="project2">

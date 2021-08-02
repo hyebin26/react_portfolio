@@ -1,7 +1,6 @@
 ## react-portfolio
 
-1. project scroll animation 추가
-2. data 추가
+1. projectTextContainer css, google font 추가
 
 ### 다음할 것
 
