@@ -22,10 +22,9 @@ const GlobalStyle = createGlobalStyle`
   }
   body{
     font-family: 'Otomanopee One', sans-serif ;
-   
+  } 
   a{
     text-decoration:none;
-    color:black;
   }
   li{
     list-style:none;

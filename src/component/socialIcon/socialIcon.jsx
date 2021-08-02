@@ -3,18 +3,22 @@ import { AiFillGithub } from "react-icons/ai";
 import { SiNotion } from "react-icons/si";
 import styled from "styled-components";
 
-const SocialWrapper = styled.section`
-  position: fixed;
-`;
+const SocialWrapper = styled.section``;
 const SocialLink = styled.a`
   display: block;
   transition: 0.3s;
+  color: #e0dfd5;
   &:hover {
     color: #00eb7f;
   }
 `;
-const H4 = styled.h2`
-  padding: 1.5rem;
+const Logo = styled.a`
+  position: fixed;
+  font-size: 1.5rem;
+  font-weight: 800;
+  top: 20px;
+  left: 30px;
+  color: #e0dfd5;
 `;
 const SocialUl = styled.ul`
   position: fixed;
@@ -31,8 +35,8 @@ const SoclaiTitle = styled.p`
 
 const SocialIcon = (props) => {
   return (
-    <SocialWrapper>
-      <H4>Logo</H4>
+    <SocialWrapper className="socialBox">
+      <Logo href="#">Logo</Logo>
       <SocialUl>
         <SocialList>
           <SocialLink href="#">
