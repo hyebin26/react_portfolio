@@ -4,11 +4,11 @@ import styled from "styled-components";
 const GreetWrapper = styled.section`
   display: flex;
   padding-left: 1rem;
-  padding: 7rem 0;
+  padding: 9rem 0;
 `;
 const TextContainer = styled.div`
   flex: 1 0 55%;
-  font-family: "Do Hyeon", sans-serif;
+  font-family: "Gowun Dodum", sans-serif;
 `;
 const ImgContainer = styled.div`
   flex: 1 0 45%;
@@ -16,8 +16,9 @@ const ImgContainer = styled.div`
 const GreetImg = styled.img`
   width: 250px;
 `;
-const TextFirst = styled.h1`
+const Text = styled.h1`
   font-size: 2rem;
+  font-weight: 700;
 `;
 const ThumbImg = styled.img`
   width: 35px;
@@ -27,15 +28,15 @@ const Greet = (props) => {
   return (
     <GreetWrapper>
       <TextContainer>
-        <TextFirst>안녕하세요</TextFirst>
-        <TextFirst>저는 프론트엔드 개발자 황혜빈이라고 합니다</TextFirst>
-        <TextFirst>
+        <Text>안녕하세요.</Text>
+        <Text>저는 프론트엔드 개발자 황혜빈이라고 합니다.</Text>
+        <Text>
           웹을 개발하고 배포하면서 프론트엔드에 대해 공부하고있습니다.
-        </TextFirst>
-        <TextFirst>
+        </Text>
+        <Text>
           페이지에 방문해주셔서 감사합니다.
           <ThumbImg src="./img/thumb.png" alt="thumbs up" />
-        </TextFirst>
+        </Text>
       </TextContainer>
       <ImgContainer>
         <GreetImg src="./img/d.jpg" alt="" />

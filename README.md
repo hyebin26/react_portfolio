@@ -1,6 +1,7 @@
 ## react-portfolio
 
-1. projectTextContainer css, google font 추가
+1. greet.jsx container padding 변경
+2. project.jsx css 변경
 
 ### 다음할 것
 

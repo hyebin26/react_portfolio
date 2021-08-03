@@ -19,6 +19,10 @@ const GlobalStyle = createGlobalStyle`
       background: black; 
       border-radius: 2px;
     };
+    ::selection{
+      background:#00eb7f;
+      color:white;
+    } 
   }
   body{
     font-family: 'Otomanopee One', sans-serif ;
