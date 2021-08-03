@@ -1,12 +1,15 @@
 import React from "react";
 import styled from "styled-components";
 
-const NavWrapper = styled.section``;
+const NavWrapper = styled.section`
+  padding: 0 2rem;
+`;
 const NavUl = styled.ul`
   display: flex;
 `;
 const NavList = styled.li`
-  padding: 1.5rem 1rem;
+  padding: 1.5rem 0;
+  padding-right: 4rem;
 `;
 const NavLink = styled.a`
   cursor: pointer;
@@ -25,10 +28,10 @@ const Nav = (props) => {
           <NavLink href="#">Home</NavLink>
         </NavList>
         <NavList>
-          <NavLink href="#">About me</NavLink>
+          <NavLink href="#">Project</NavLink>
         </NavList>
         <NavList>
-          <NavLink href="#">Project</NavLink>
+          <NavLink href="#">About me</NavLink>
         </NavList>
         <NavList>
           <NavLink href="#">Contact</NavLink>

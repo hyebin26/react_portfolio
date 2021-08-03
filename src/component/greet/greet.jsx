@@ -4,7 +4,7 @@ import styled from "styled-components";
 const GreetWrapper = styled.section`
   display: flex;
   padding-left: 1rem;
-  padding: 9rem 0;
+  padding: 9rem 2rem;
 `;
 const TextContainer = styled.div`
   flex: 1 0 55%;

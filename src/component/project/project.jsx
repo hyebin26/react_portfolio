@@ -48,6 +48,7 @@ const ProjectUl = styled.ul`
   height: 100vh;
   display: flex;
   flex-wrap: nowrap;
+  overflow: hidden;
 `;
 const ProjectLi = styled.li`
   width: 100%;
@@ -87,8 +88,8 @@ const Link = styled.a`
     color: #00eb7f;
   }
 `;
-const Test = styled.h1`
-  font-size: 2.5rem;
+const Category = styled.h1`
+  font-size: 2.2rem;
   position: absolute;
   top: 3rem;
   left: 2rem;
@@ -125,16 +126,22 @@ const Project = (props) => {
   }, []);
   useEffect(() => {
     listRef.current.map((el, index) => {
-      gsap.from(el, {
-        duration: 1,
-        opacity: 0,
-        ease: "power1.inOut",
-        scrollTrigger: {
-          trigger: el,
-          start: "center center+=100",
-          toggleActions: "play none none reverse",
+      gsap.fromTo(
+        el,
+        {
+          opacity: 0,
         },
-      });
+        {
+          duration: 1,
+          opacity: 1,
+          ease: "power1.inOut",
+          scrollTrigger: {
+            trigger: el,
+            start: "center center+=100",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
     });
     listRef.current.map((el, index) => {
       gsap.to("body", {
@@ -166,7 +173,7 @@ const Project = (props) => {
   return (
     <ProjectWrapper>
       <ProjectUl ref={ulRef} className="itemBox">
-        <Test>PROJECT</Test>
+        <Category>PROJECT</Category>
         {data.map((item, index) => {
           return (
             <ProjectLi

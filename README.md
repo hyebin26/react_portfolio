@@ -1,9 +1,8 @@
 ## react-portfolio
 
-1. greet.jsx container padding 변경
-2. project.jsx css 변경
+1. add contact.jsx, about.jsx
+2. contact css 추가
 
 ### 다음할 것
 
-1. review readme작성, 수정
-2. redux toolkit 적용해서 배경화면 바꾸기
+1. contact social icon
