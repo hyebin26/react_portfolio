@@ -19,6 +19,9 @@ const GreetImg = styled.img`
 const Text = styled.h1`
   font-size: 2rem;
   font-weight: 700;
+  &:hover .greetImg {
+    transform: scale(1.3);
+  }
 `;
 const ThumbImg = styled.img`
   width: 35px;
@@ -35,7 +38,11 @@ const Greet = (props) => {
         </Text>
         <Text>
           페이지에 방문해주셔서 감사합니다.
-          <ThumbImg src="./img/thumb.png" alt="thumbs up" />
+          <ThumbImg
+            className="greetImg"
+            src="./img/thumb.png"
+            alt="thumbs up"
+          />
         </Text>
       </TextContainer>
       <ImgContainer>
