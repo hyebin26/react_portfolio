@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import styled from "styled-components";
 import { HiOutlineMail } from "react-icons/hi";
 import { AiFillGithub } from "react-icons/ai";
@@ -57,11 +57,24 @@ const ContactSocialLink = styled.a`
 
 const Contact = (props) => {
   const contactRef = useRef([]);
+  const wrapperRef = useRef(null);
   const addRefs = (el, index) => {
     contactRef.current[index] = el;
   };
+  useEffect(() => {
+    gsap.from(contactRef.current, {
+      opacity: 0,
+      stagger: 0.5,
+      y: 50,
+      scrollTrigger: {
+        trigger: wrapperRef.current,
+        start: "bottom bottom+=100",
+        toggleActions: "play none none reverse",
+      },
+    });
+  }, []);
   return (
-    <ContactWrapper>
+    <ContactWrapper ref={wrapperRef}>
       <ContactText one ref={(e) => addRefs(e, 0)}>
         MINDING A PROJECT?
       </ContactText>

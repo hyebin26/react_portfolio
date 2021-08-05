@@ -126,22 +126,16 @@ const Project = (props) => {
   }, []);
   useEffect(() => {
     listRef.current.map((el, index) => {
-      gsap.fromTo(
-        el,
-        {
-          opacity: 0,
+      gsap.from(el, {
+        duration: 1,
+        opacity: 0,
+        y: 60,
+        scrollTrigger: {
+          trigger: ulRef.current,
+          start: "center center+=100",
+          toggleActions: "play none none reverse",
         },
-        {
-          duration: 1,
-          opacity: 1,
-          ease: "power1.inOut",
-          scrollTrigger: {
-            trigger: el,
-            start: "center center+=100",
-            toggleActions: "play none none reverse",
-          },
-        }
-      );
+      });
     });
     listRef.current.map((el, index) => {
       gsap.to("body", {

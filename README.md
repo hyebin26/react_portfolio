@@ -1,5 +1,5 @@
 ## react-portfolio
 
-### 다음할 것
+1. contact animation 추가
 
-1. contact social icon
+### 다음할 것
