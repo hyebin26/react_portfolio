@@ -3,9 +3,12 @@ import styled from "styled-components";
 
 const AboutWrapper = styled.section`
   height: 100vh;
-  padding: 0 2rem;
+  max-width: 50rem;
+  margin: 0 auto;
   display: flex;
   align-items: center;
+  padding: 0 3rem;
+  overflow: visible;
 `;
 const AboutContent = styled.p`
   font-family: "Gowun Dodum", sans-serif;
@@ -17,9 +20,10 @@ const AboutTitle = styled.h1`
 `;
 const AboutContainer = styled.div`
   background: white;
-  padding: 5rem 2rem;
+  padding: 4rem 9rem;
   border-radius: 0.3%;
   font-size: 1.3rem;
+  border-radius: 2rem;
 `;
 const AboutTextStrong = styled.strong`
   background: linear-gradient(to right, #00eb7f 0%, #330867 100%);
@@ -30,16 +34,18 @@ const AboutBox = styled.div`
   display: flex;
   justify-content: space-evenly;
   padding: 1rem 0;
+  overflow: visible;
 `;
-const AboutUl = styled.ul``;
+const AboutUl = styled.ul`
+  display: flex;
+  flex-direction: column;
+`;
 const AboutLi = styled.li`
-  background: rgb(57, 62, 70);
-  padding: 0.2rem 1.5rem;
-  border-radius: 2rem;
+  padding-bottom: 1rem;
 `;
 const AboutEmoziBox = styled.div`
-  width: 9rem;
-  height: 9rem;
+  width: 10rem;
+  height: 10rem;
   background: #00eb7f;
   font-size: 5rem;
   border-radius: 50%;
@@ -60,6 +66,14 @@ const AboutEmoziText = styled.p`
 `;
 const AboutLink = styled.a`
   color: white;
+  background: rgb(57, 62, 70);
+  border-radius: 2rem;
+  cursor: pointer;
+  padding: 0.3rem 0.7rem;
+  display: block;
+  &:hover {
+    background: #00eb7f;
+  }
 `;
 const About = (props) => {
   return (
@@ -73,13 +87,19 @@ const About = (props) => {
           </AboutEmoziBox>
           <AboutUl>
             <AboutLi>
-              <AboutLink href="#">sksp4334@naver.com</AboutLink>
+              <AboutLink href="#" one>
+                sksp4334@naver.com
+              </AboutLink>
             </AboutLi>
             <AboutLi>
-              <AboutLink href="#">Github</AboutLink>
+              <AboutLink href="#" two>
+                GITHUB
+              </AboutLink>
             </AboutLi>
             <AboutLi>
-              <AboutLink href="#">Notion</AboutLink>
+              <AboutLink href="#" three>
+                NOTION
+              </AboutLink>
             </AboutLi>
           </AboutUl>
         </AboutBox>
