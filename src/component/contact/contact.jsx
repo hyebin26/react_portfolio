@@ -85,16 +85,18 @@ const Contact = (props) => {
         HIRE ME
       </ContactText>
       <ContactBox ref={(e) => addRefs(e, 2)}>
-        <ContactLink href="#">sksp4334@naver.com</ContactLink>
+        <ContactLink href="mailto:sksp4334@naver.com">
+          sksp4334@naver.com
+        </ContactLink>
       </ContactBox>
       <ContactSocialBox ref={(e) => addRefs(e, 3)}>
         <ContactSocial>
-          <ContactSocialLink href="#">
+          <ContactSocialLink href="mailto:sksp4334@naver.com">
             <HiOutlineMail />
           </ContactSocialLink>
         </ContactSocial>
         <ContactSocial>
-          <ContactSocialLink href="#">
+          <ContactSocialLink href="https://github.com/orgs/hyebin26">
             <AiFillGithub />
           </ContactSocialLink>
         </ContactSocial>

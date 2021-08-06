@@ -39,7 +39,7 @@ const SocialIcon = (props) => {
       <Logo href="#">Logo</Logo>
       <SocialUl>
         <SocialList>
-          <SocialLink href="#">
+          <SocialLink href="https://github.com/hyebin26">
             <AiFillGithub className="git" />
             <SoclaiTitle>Github</SoclaiTitle>
           </SocialLink>
