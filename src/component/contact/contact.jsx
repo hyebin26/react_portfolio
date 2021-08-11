@@ -4,6 +4,7 @@ import { HiOutlineMail } from "react-icons/hi";
 import { AiFillGithub } from "react-icons/ai";
 import { SiNotion } from "react-icons/si";
 import { gsap } from "gsap";
+import { Element } from "react-scroll";
 
 const ContactWrapper = styled.section`
   height: 100vh;
@@ -64,7 +65,7 @@ const Contact = (props) => {
   useEffect(() => {
     gsap.from(contactRef.current, {
       opacity: 0,
-      stagger: 0.5,
+      stagger: 0.8,
       y: 50,
       scrollTrigger: {
         trigger: wrapperRef.current,
@@ -74,39 +75,41 @@ const Contact = (props) => {
     });
   }, []);
   return (
-    <ContactWrapper ref={wrapperRef}>
-      <ContactText one ref={(e) => addRefs(e, 0)}>
-        MINDING A PROJECT?
-      </ContactText>
-      <ContactText textColor="#00eb7f" two ref={(e) => addRefs(e, 1)}>
-        LET'S TALK
-      </ContactText>
-      <ContactText textColor="#222831" three>
-        HIRE ME
-      </ContactText>
-      <ContactBox ref={(e) => addRefs(e, 2)}>
-        <ContactLink href="mailto:sksp4334@naver.com">
-          sksp4334@naver.com
-        </ContactLink>
-      </ContactBox>
-      <ContactSocialBox ref={(e) => addRefs(e, 3)}>
-        <ContactSocial>
-          <ContactSocialLink href="mailto:sksp4334@naver.com">
-            <HiOutlineMail />
-          </ContactSocialLink>
-        </ContactSocial>
-        <ContactSocial>
-          <ContactSocialLink href="https://github.com/orgs/hyebin26">
-            <AiFillGithub />
-          </ContactSocialLink>
-        </ContactSocial>
-        <ContactSocial>
-          <ContactSocialLink href="#">
-            <SiNotion />
-          </ContactSocialLink>
-        </ContactSocial>
-      </ContactSocialBox>
-    </ContactWrapper>
+    <Element name="contact">
+      <ContactWrapper ref={wrapperRef}>
+        <ContactText one ref={(e) => addRefs(e, 0)}>
+          MINDING A PROJECT?
+        </ContactText>
+        <ContactText textColor="#00eb7f" two ref={(e) => addRefs(e, 1)}>
+          LET'S TALK
+        </ContactText>
+        <ContactText textColor="#222831" three>
+          HIRE ME
+        </ContactText>
+        <ContactBox ref={(e) => addRefs(e, 2)}>
+          <ContactLink href="mailto:sksp4334@naver.com">
+            sksp4334@naver.com
+          </ContactLink>
+        </ContactBox>
+        <ContactSocialBox ref={(e) => addRefs(e, 3)}>
+          <ContactSocial>
+            <ContactSocialLink href="mailto:sksp4334@naver.com">
+              <HiOutlineMail />
+            </ContactSocialLink>
+          </ContactSocial>
+          <ContactSocial>
+            <ContactSocialLink href="https://github.com/orgs/hyebin26">
+              <AiFillGithub />
+            </ContactSocialLink>
+          </ContactSocial>
+          <ContactSocial>
+            <ContactSocialLink href="#">
+              <SiNotion />
+            </ContactSocialLink>
+          </ContactSocial>
+        </ContactSocialBox>
+      </ContactWrapper>
+    </Element>
   );
 };
 

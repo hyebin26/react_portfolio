@@ -1,10 +1,13 @@
 import React from "react";
 import styled from "styled-components";
+import { Element } from "react-scroll";
 
 const GreetWrapper = styled.section`
   display: flex;
-  padding-left: 1rem;
-  padding: 9rem 2rem;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
 `;
 const TextContainer = styled.div`
   flex: 1 0 55%;
@@ -29,26 +32,28 @@ const ThumbImg = styled.img`
 
 const Greet = (props) => {
   return (
-    <GreetWrapper>
-      <TextContainer>
-        <Text>안녕하세요.</Text>
-        <Text>저는 프론트엔드 개발자 황혜빈이라고 합니다.</Text>
-        <Text>
-          웹을 개발하고 배포하면서 프론트엔드에 대해 공부하고있습니다.
-        </Text>
-        <Text>
-          페이지에 방문해주셔서 감사합니다.
-          <ThumbImg
-            className="greetImg"
-            src="./img/thumb.png"
-            alt="thumbs up"
-          />
-        </Text>
-      </TextContainer>
-      <ImgContainer>
-        <GreetImg src="./img/d.jpg" alt="" />
-      </ImgContainer>
-    </GreetWrapper>
+    <Element name="home">
+      <GreetWrapper>
+        <TextContainer>
+          <Text>안녕하세요.</Text>
+          <Text>저는 프론트엔드 개발자 황혜빈이라고 합니다.</Text>
+          <Text>
+            웹을 개발하고 배포하면서 프론트엔드에 대해 공부하고있습니다.
+          </Text>
+          <Text>
+            페이지에 방문해주셔서 감사합니다.
+            <ThumbImg
+              className="greetImg"
+              src="./img/thumb.png"
+              alt="thumbs up"
+            />
+          </Text>
+        </TextContainer>
+        <ImgContainer>
+          <GreetImg src="./img/d.jpg" alt="" />
+        </ImgContainer>
+      </GreetWrapper>
+    </Element>
   );
 };
 

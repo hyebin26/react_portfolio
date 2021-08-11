@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 import { gsap } from "gsap";
+import { Element } from "react-scroll";
 
 const AboutWrapper = styled.section`
   height: 100vh;
@@ -63,57 +64,57 @@ const AboutText = styled.p``;
 
 const About = (props) => {
   const aboutWrapperRef = useRef(null);
-  const aboutItemRef = useRef([]);
 
-  const addAboutRef = (el, index) => {
-    aboutItemRef.current[index] = el;
-  };
   useEffect(() => {
     const wrapperCurrent = aboutWrapperRef.current;
     gsap.from(wrapperCurrent, {
       opacity: 0,
-      x: 200,
+      x: 250,
+      ease: "power4.out",
+      duration: 1.5,
       scrollTrigger: {
         trigger: wrapperCurrent,
         start: "center bottom",
         toggleActions: "play none none reverse",
       },
     });
-  }, []);
+  }, [gsap]);
   return (
-    <AboutWrapper ref={aboutWrapperRef}>
-      <AboutContainer>
-        <AboutTitle>ABOUT ME</AboutTitle>
-        <AboutBox>
-          <AboutEmoziBox>
-            <AboutEmozi>👨</AboutEmozi>
-            <AboutEmoziText>Developer</AboutEmoziText>
-          </AboutEmoziBox>
-        </AboutBox>
-        <AboutContent>
-          <AboutText>안녕하세요! 😁</AboutText>
-          <AboutText>
-            <AboutTextStrong>Frontend</AboutTextStrong>에 대해서 공부하고 있는
-            주니어 개발자 황혜빈입니다.
-          </AboutText>
-          <AboutText>
-            <AboutTextStrong>Javascript, React</AboutTextStrong>를 공부면서
-            반응형 웹사이트, 웹 에플리케이션을 개발하면서 사용자 중심적으로
-            생각하고 더 좋은 앱을 만들기 위해 노력하고 있습니다.
-          </AboutText>
-          <AboutText>
-            새로운 프로젝트를 하면서 기존에 알고 있는 라이브러리가 아닌 새로운
-            라이브러리를 도입하려고 노력했으며 새로운 지식을 배우는 것에 대한
-            관심이 많습니다.
-          </AboutText>
-          <AboutText>
-            그리고 웹을 스스로 배포하면서 웹에 대해서 이해하기 위해
-            노력하였습니다. 또한 백엔드에도 관심을 가지고 서버도 배포하는 등
-            개발 전반적으로 이해를 하기 위해 노력하고 있습니다.
-          </AboutText>
-        </AboutContent>
-      </AboutContainer>
-    </AboutWrapper>
+    <Element name="about">
+      <AboutWrapper ref={aboutWrapperRef}>
+        <AboutContainer>
+          <AboutTitle>ABOUT ME</AboutTitle>
+          <AboutBox>
+            <AboutEmoziBox>
+              <AboutEmozi>👨</AboutEmozi>
+              <AboutEmoziText>Developer</AboutEmoziText>
+            </AboutEmoziBox>
+          </AboutBox>
+          <AboutContent>
+            <AboutText>안녕하세요! 😁</AboutText>
+            <AboutText>
+              <AboutTextStrong>Frontend</AboutTextStrong>에 대해서 공부하고 있는
+              주니어 개발자 황혜빈입니다.
+            </AboutText>
+            <AboutText>
+              <AboutTextStrong>Javascript, React</AboutTextStrong>를 공부면서
+              반응형 웹사이트, 웹 에플리케이션을 개발하면서 사용자 중심적으로
+              생각하고 더 좋은 앱을 만들기 위해 노력하고 있습니다.
+            </AboutText>
+            <AboutText>
+              새로운 프로젝트를 진행하면서 기존에 알고 있는 라이브러리가 아닌
+              프로젝트에 필요한 새로운 라이브러리를 도입하려고 노력했으며 새로운
+              지식을 배우는 것에 대한 관심이 많습니다.
+            </AboutText>
+            <AboutText>
+              그리고 웹을 스스로 배포하면서 웹에 대해서 이해하기 위해
+              노력하였습니다. 또한 백엔드에도 관심을 가지고 서버도 배포하는 등
+              개발 전반적으로 이해를 하기 위해 노력하고 있습니다.
+            </AboutText>
+          </AboutContent>
+        </AboutContainer>
+      </AboutWrapper>
+    </Element>
   );
 };
 

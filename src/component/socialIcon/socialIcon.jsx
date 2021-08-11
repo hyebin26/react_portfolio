@@ -2,8 +2,18 @@ import React from "react";
 import { AiFillGithub } from "react-icons/ai";
 import { SiNotion } from "react-icons/si";
 import styled from "styled-components";
+import { Link } from "react-scroll";
 
-const SocialWrapper = styled.section``;
+const SocialWrapper = styled.section`
+  .logo {
+    position: fixed;
+    font-size: 1.5rem;
+    top: 20px;
+    left: 30px;
+    color: #e0dfd5;
+    cursor: pointer;
+  }
+`;
 const SocialLink = styled.a`
   display: block;
   transition: 0.3s;
@@ -36,7 +46,16 @@ const SoclaiTitle = styled.p`
 const SocialIcon = (props) => {
   return (
     <SocialWrapper className="socialBox">
-      <Logo href="#">Logo</Logo>
+      <Link
+        to="home"
+        className="logo"
+        smooth={true}
+        spy={true}
+        duration={1000}
+        offset={-1000}
+      >
+        Hyebin
+      </Link>
       <SocialUl>
         <SocialList>
           <SocialLink href="https://github.com/hyebin26">
