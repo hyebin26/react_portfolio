@@ -12,7 +12,7 @@ const GlobalStyle = createGlobalStyle`
     padding:0;
     margin:0;
     box-sizing:border-box;
-    overflow-x:hidden;
+    overflow-x: hidden;
     &::-webkit-scrollbar {
       width: 12px;
     }

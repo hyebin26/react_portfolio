@@ -41,6 +41,8 @@ const data = [
   },
 ];
 
+const BREAK_POINT_MOBILE = 768;
+
 const ProjectWrapper = styled.section`
   position: relative;
 `;
@@ -50,6 +52,11 @@ const ProjectUl = styled.ul`
   display: flex;
   flex-wrap: nowrap;
   overflow: hidden;
+  @media only screen and (max-width: 768px) {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
 `;
 const ProjectLi = styled.li`
   width: 100%;
@@ -73,6 +80,8 @@ const ProjectTextBox = styled.div`
   font-family: "Gowun Dodum", sans-serif;
   font-size: 1.1rem;
   position: relative;
+  display: flex;
+  flex-direction: column;
 `;
 const Title = styled.h2`
   color: white;
@@ -98,8 +107,7 @@ const Category = styled.h1`
 `;
 const Span = styled.span``;
 const TextSmallBox = styled.div`
-  ${(props) => (props.link ? "bottom: 2rem;" : "bottom:0;")}
-  position: absolute;
+  ${(props) => (props.link ? "margin-top:auto;" : "")}
 `;
 const Project = (props) => {
   const ulRef = useRef(null);
@@ -112,58 +120,66 @@ const Project = (props) => {
   useEffect(() => {
     const element = ulRef.current;
     const totalLength = listRef.current.length;
-    gsap.to(listRef.current, {
-      xPercent: -100 * (totalLength - 1),
-      ease: "none",
-      duration: 0.1,
-      scrollTrigger: {
-        trigger: element,
-        pin: true,
-        scrub: 1,
-        snap: 1 / (totalLength - 1),
-        end: () => "+=" + element.offsetWidth,
+    ScrollTrigger.saveStyles([element, listRef.current]);
+    const tl = gsap.timeline();
+    ScrollTrigger.matchMedia({
+      "(min-width: 768px)": function () {
+        gsap.to(listRef.current, {
+          xPercent: -100 * (totalLength - 1),
+          ease: "none",
+          duration: 0.1,
+          scrollTrigger: {
+            trigger: element,
+            pin: true,
+            scrub: 1,
+            snap: 1 / (totalLength - 1),
+            end: () => "+=" + element.offsetWidth,
+          },
+        });
+      },
+      "(max-width:768px)": function () {},
+      all: function () {
+        listRef.current.map((el, index) => {
+          gsap.to("body", {
+            scrollTrigger: {
+              trigger: element,
+              start: "top center+=100",
+              toggleActions: "play none none reverse",
+            },
+            backgroundColor: "#222831",
+          });
+        });
+        listRef.current.map((el, index) => {
+          gsap.fromTo(
+            ".socialBox",
+            { display: "none" },
+            {
+              scrollTrigger: {
+                trigger: element,
+                start: "top center+=100",
+                toggleActions: "play none none reverse",
+              },
+              duration: 0.1,
+              display: "block",
+            }
+          );
+        });
+        listRef.current.map((el, index) => {
+          gsap.from(el, {
+            duration: 1,
+            opacity: 0,
+            y: 60,
+            scrollTrigger: {
+              trigger: ulRef.current,
+              start: "top bottom+=100",
+              toggleActions: "play none none reverse",
+            },
+          });
+        });
       },
     });
-  }, []);
-  useEffect(() => {
-    listRef.current.map((el, index) => {
-      gsap.from(el, {
-        duration: 1,
-        opacity: 0,
-        y: 60,
-        scrollTrigger: {
-          trigger: ulRef.current,
-          start: "center center+=100",
-          toggleActions: "play none none reverse",
-        },
-      });
-    });
-    listRef.current.map((el, index) => {
-      gsap.to("body", {
-        scrollTrigger: {
-          trigger: el,
-          start: "top center+=100",
-          toggleActions: "play none none reverse",
-        },
-        backgroundColor: "#222831",
-      });
-    });
-    listRef.current.map((el, index) => {
-      gsap.fromTo(
-        ".socialBox",
-        { display: "none" },
-        {
-          scrollTrigger: {
-            trigger: el,
-            start: "top center+=100",
-            toggleActions: "play none none reverse",
-          },
-          duration: 0.1,
-          display: "block",
-        }
-      );
-    });
-  }, []);
+  }, [gsap]);
+  useEffect(() => {}, []);
 
   return (
     <Element name="project">

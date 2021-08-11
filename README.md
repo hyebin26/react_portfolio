@@ -1,9 +1,8 @@
 ## react-portfolio
 
-1. add react scroll
-2. scroll nav 추가
+1. media query추가
 
 ### 다음할 것
 
-2. 반응형추가
-3. 에러지우기
+1. start수정, 미디어 쿼리할 떄 에니메이션 추가
+2. 에러지우기

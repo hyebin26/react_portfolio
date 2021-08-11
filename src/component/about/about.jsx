@@ -4,7 +4,6 @@ import { gsap } from "gsap";
 import { Element } from "react-scroll";
 
 const AboutWrapper = styled.section`
-  height: 100vh;
   max-width: 60rem;
   margin: 0 auto;
   display: flex;
