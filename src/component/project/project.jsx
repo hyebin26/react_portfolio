@@ -18,7 +18,7 @@ const data = [
   {
     title: "Review Page",
     content:
-      "영화와 독서의 기록을 남기기 위해 만든 게시판 형식의 페이지 입니다. NodeJs, Express, Mysql, 바닐라 자바스크립트를 이용해서 만들었습니다. 게시글, 댓글, 로그인, 회원가입 등을 Mysql로 저장하여 관리하고 있습니다. 그리고 검색 기능, 페이지네이션, 댓글 기능 등을 구현하였습니다. 또한 Cloudynary API를 통해 이미지를 업로드하는 기능을 추가했습니다. 서버는 Express를 사용해서 heroku에 배포하였고 웹 또한 heroku에 배포하였습니다. * 페이지를 오래 방문하지 않을 시 서버가 잠기므로 새로고침을 누르고 잠시만 기다려주세요! *",
+      "영화와 독서의 기록을 남기기 위해 만든 게시판 형식의 페이지 입니다. NodeJs, Express, Mysql, 바닐라 자바스크립트를 이용해서 만들었습니다. 게시글, 로그인, 회원가입 등은 mysql을 이용해서 구현하였습니다. 그리고 검색 기능, 페이지네이션, 댓글, 게시글 수정 등을 여러가지를 구현하였습니다. 또한 Cloudynary API를 통해 이미지를 업로드하는 기능을 추가했습니다. 서버는 Express를 사용해서 heroku에 배포하였고 웹 또한 heroku에 배포하였습니다. * 페이지를 오래 방문하지 않을 시 서버가 잠기므로 새로고침을 누르고 잠시만 기다려주세요! *",
     link: "https://review-vanillajs.herokuapp.com/",
     sourceLink: "https://github.com/hyebin26/vanillaJs_review",
     img: "./img/review.gif",
@@ -26,7 +26,7 @@ const data = [
   {
     title: "Diet Calendar",
     content:
-      "이 앱을 만든 이유는 다이어트를 할 때 자신의 키와 몸무게에 따른 권장 칼로리를 계산하고 그 권장 칼로리에 따른 결과를 기록하고 싶어서 만들었습니다. 우선 로그인은 firebase로 구현하였으며 firebase를 사용한 이유는 간단하게 로그인을 구현할 수 있고 firebase DB를 사용하기 편리하기 때문입니다. 메인페이지에서는 아침, 점심, 저녁 칼로리를 기록할 수 있으며, 권장 칼로리를 기준으로 더 많이 섭취할 시 칼로리를 표시하는 색을 빨간색으로 표시하게 했습니다. 그리고 사용자의 정보를 저장하고 관리하는 Database는 firebase에 realtime DB를 통해 구현하였습니다.",
+      "다이어트를 할 때 자신의 키와 몸무게에 따른 권장 칼로리를 계산하고 그 권장 칼로리에 따른 결과를 기록하고 싶어서 만들었습니다. 로그인은 firebase로 구현하였고 database 또한 firebase realtime DB를 사용했습니다. 칼로리를 계산하는 페이지에서는 자신의 신체정보를 입력하면 그에 알맞은 권장 칼로리가 측정됩니다. 또한 메인페이지에서 캘린더는 바닐라 자바스크립트로 구현하였고 날마다 칼로리를 기록할 수 있으며, 권장 칼로리를 기준으로 더 많이 섭취할 경우 칼로리를 표시하는 색을 빨간색으로 표시하게 했습니다.",
     link: "https://hyebin26.github.io/react-dietCalendar/",
     sourceLink: "https://github.com/hyebin26/react-dietCalendar",
     img: "./img/calendar.gif",
@@ -34,14 +34,12 @@ const data = [
   {
     title: "StockGame",
     content:
-      "이 앱의 이유는 StockGame으로 간단하게 할 수 있는 모의주식 게임입니다. 로그인은 firebase, Database는 firebase에 realtime database를 사용하여 구현했습니다. 상태관리를 간편하게 하기 위해 reudx-toolkit을 사용했으며, 그래프를 그리는 것은 chart.js를 사용했습니다.",
+      "간단하게 할 수 있는 모의주식 게임입니다. 로그인은 firebase, Database는 firebase realtime database를 사용했습니다. 상태관리를 간편하게 하기 위해 reudx-toolkit을 사용하였고 차트는 chart.js를 사용해서 구현했습니다. 메인페이지에서 주식을 판매, 구매 할 수 있고 NextDay 버튼을 누르면 일정한 확률에 맞게 가격이 변동되고 다음 날로 넘어가게 됩니다. 또한 Reset 버튼을 누르면 첫 번째 날로 리셋할 수 있습니다. 또한 Hint 버튼을 누르면 다음 날의 가격 변동의 단서가 되는 힌트를 확인 할 수 있습니다. 투자내역에서는 소유 주식, 힌트 저장소에서는 소유 힌트를 확인할 수 있습니다.",
     link: "https://hyebin26.github.io/react_stockgame/",
     sourceLink: "https://github.com/hyebin26/react_stockgame",
     img: "./img/stockgame.gif",
   },
 ];
-
-const BREAK_POINT_MOBILE = 768;
 
 const ProjectWrapper = styled.section`
   position: relative;
@@ -52,7 +50,7 @@ const ProjectUl = styled.ul`
   display: flex;
   flex-wrap: nowrap;
   overflow: hidden;
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 1024px) {
     width: 100%;
     height: 100%;
     display: block;
@@ -63,7 +61,7 @@ const ProjectLi = styled.li`
   display: flex;
   padding: 8rem 2rem;
   color: #e0dfd5;
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 1024px) {
     display: block;
   }
 `;
@@ -80,13 +78,14 @@ const ProjectTextBox = styled.div`
   flex: 1 0 45%;
   border-radius: 0 1% 1% 0;
   font-family: "Gowun Dodum", sans-serif;
-  font-size: 1.1rem;
+  font-size: 1rem;
   position: relative;
   display: flex;
   flex-direction: column;
   padding-left: 1.5rem;
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 1024px) {
     padding-left: 0;
+    padding-top: 1.5rem;
   }
 `;
 const Title = styled.h2`
@@ -96,6 +95,9 @@ const Title = styled.h2`
 const Content = styled.p`
   padding-top: 1.5rem;
   color: #e0dfd5;
+  @media only screen and (max-width: 1024px) {
+    padding-top: 0rem;
+  }
 `;
 const Link = styled.a`
   text-decoration: underline;
@@ -114,7 +116,7 @@ const Category = styled.h1`
 const Span = styled.span``;
 const TextSmallBox = styled.div`
   ${(props) => (props.link ? "margin-top:auto;" : "")}
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 1024px) {
     margin-top: 1rem;
   }
 `;
@@ -132,7 +134,7 @@ const Project = (props) => {
     ScrollTrigger.saveStyles([element, listRef.current]);
     const tl = gsap.timeline();
     ScrollTrigger.matchMedia({
-      "(min-width: 768px)": function () {
+      "(min-width: 1025px)": function () {
         gsap.to(listRef.current, {
           xPercent: -100 * (totalLength - 1),
           ease: "none",
@@ -158,7 +160,7 @@ const Project = (props) => {
           });
         });
       },
-      "(max-width:768px)": function () {
+      "(max-width:1025px)": function () {
         listRef.current.map((el, index) => {
           gsap.from(el, {
             duration: 1,

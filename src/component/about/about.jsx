@@ -18,6 +18,9 @@ const AboutTitle = styled.h1`
   color: #00eb7f;
   font-size: 2.2rem;
   text-align: center;
+  @media only screen and (max-width: 800px) {
+    font-size: 1.8rem;
+  }
 `;
 const AboutContainer = styled.div`
   background: white;
@@ -25,6 +28,15 @@ const AboutContainer = styled.div`
   border-radius: 0.3%;
   font-size: 1.3rem;
   border-radius: 2rem;
+  @media only screen and (max-width: 1024px) {
+    font-size: 1.1rem;
+  }
+  @media only screen and (max-width: 800px) {
+    padding: 4rem 2rem;
+  }
+  @media only screen and (max-width: 600px) {
+    font-size: 1rem;
+  }
 `;
 const AboutTextStrong = styled.strong`
   background: linear-gradient(to right, #00eb7f 0%, #330867 100%);

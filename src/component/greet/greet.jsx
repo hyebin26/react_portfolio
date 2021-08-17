@@ -15,6 +15,9 @@ const TextContainer = styled.div`
 `;
 const ImgContainer = styled.div`
   flex: 1 0 45%;
+  @media only screen and (max-width: 600px) {
+    display: none;
+  }
 `;
 const GreetImg = styled.img`
   width: 250px;

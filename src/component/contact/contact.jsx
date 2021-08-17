@@ -22,6 +22,15 @@ const ContactText = styled.h1`
     text-align:center;
     z-index: ${(props) => (props.three ? "-1;" : "0")}
     margin-top: ${(props) => (props.three ? "-150px" : "0")};
+    @media only screen and (max-width: 800px) {
+      font-size:${(props) =>
+        props.one ? "3rem;" : props.two ? "2rem;" : "6rem;"};
+    }
+    @media only screen and (max-width: 600px) {
+      font-size:${(props) =>
+        props.one ? "2rem;" : props.two ? "2.5rem;" : "5rem;"};
+        margin-top: ${(props) => (props.three ? "-90px" : "0")};
+    }
 }
 `;
 const ContactLink = styled.a`
@@ -40,6 +49,9 @@ const ContactBox = styled.div`
   text-align: center;
   overflow: visible;
   margin-top: -40px;
+  @media only screen and (max-width: 800px) {
+    margin-top: 15px;
+  }
 `;
 const ContactSocialBox = styled.ul`
   display: flex;
