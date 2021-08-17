@@ -1,6 +1,6 @@
 ## react-portfolio
 
-1. media query추가
+1. project animation start 지점 수정
 
 ### 다음할 것
 

@@ -18,7 +18,7 @@ const data = [
   {
     title: "Review Page",
     content:
-      "영화와 독서의 기록을 남기기 위해 만든 게시판 형식의 페이지 입니다. NodeJs, Express, Mysql, 바닐라 자바스크립트를 이용해서 만들었습니다. 게시글, 댓글, 로그인, 회원가입 등을 Mysql로 저장하여 관리하고 있습니다. 그리고 검색 부분은 검색을 하면 서버로 검색 내용을 전달하고 전달받은 내용 중 DB에 있는 제목, 내용과 일치하는 내용이 있으면 가져오는 것으로 구현했습니다. 또한 게시글이 점점 많아지면 페이지가 자동적으로 추가되는 페이지네이션을 추가했습니다. 또한 Cloudynary API를 통해 이미지를 업로드하는 기능을 추가했습니다. 서버는 Express를 사용해서 heroku에 배포하였고 어플리케이션 또한 js파일을 웹팩을 이용해 번들링 한 후 heroku에 배포하였습니다. * 페이지를 오래 방문하지 않을 시 서버가 잠기므로 새로고침을 누르고 잠시만 기다려주세요! *",
+      "영화와 독서의 기록을 남기기 위해 만든 게시판 형식의 페이지 입니다. NodeJs, Express, Mysql, 바닐라 자바스크립트를 이용해서 만들었습니다. 게시글, 댓글, 로그인, 회원가입 등을 Mysql로 저장하여 관리하고 있습니다. 그리고 검색 기능, 페이지네이션, 댓글 기능 등을 구현하였습니다. 또한 Cloudynary API를 통해 이미지를 업로드하는 기능을 추가했습니다. 서버는 Express를 사용해서 heroku에 배포하였고 웹 또한 heroku에 배포하였습니다. * 페이지를 오래 방문하지 않을 시 서버가 잠기므로 새로고침을 누르고 잠시만 기다려주세요! *",
     link: "https://review-vanillajs.herokuapp.com/",
     sourceLink: "https://github.com/hyebin26/vanillaJs_review",
     img: "./img/review.gif",
@@ -63,6 +63,9 @@ const ProjectLi = styled.li`
   display: flex;
   padding: 8rem 2rem;
   color: #e0dfd5;
+  @media only screen and (max-width: 768px) {
+    display: block;
+  }
 `;
 const ProjectImg = styled.img`
   width: 100%;
@@ -76,12 +79,15 @@ const ProjectImgBox = styled.div`
 const ProjectTextBox = styled.div`
   flex: 1 0 45%;
   border-radius: 0 1% 1% 0;
-  padding-left: 1.5rem;
   font-family: "Gowun Dodum", sans-serif;
   font-size: 1.1rem;
   position: relative;
   display: flex;
   flex-direction: column;
+  padding-left: 1.5rem;
+  @media only screen and (max-width: 768px) {
+    padding-left: 0;
+  }
 `;
 const Title = styled.h2`
   color: white;
@@ -108,6 +114,9 @@ const Category = styled.h1`
 const Span = styled.span``;
 const TextSmallBox = styled.div`
   ${(props) => (props.link ? "margin-top:auto;" : "")}
+  @media only screen and (max-width: 768px) {
+    margin-top: 1rem;
+  }
 `;
 const Project = (props) => {
   const ulRef = useRef(null);
@@ -136,8 +145,33 @@ const Project = (props) => {
             end: () => "+=" + element.offsetWidth,
           },
         });
+        listRef.current.map((el, index) => {
+          gsap.from(el, {
+            duration: 1,
+            opacity: 0,
+            y: 130,
+            scrollTrigger: {
+              trigger: element,
+              start: "center bottom-=100",
+              toggleActions: "play none none reverse",
+            },
+          });
+        });
       },
-      "(max-width:768px)": function () {},
+      "(max-width:768px)": function () {
+        listRef.current.map((el, index) => {
+          gsap.from(el, {
+            duration: 1,
+            opacity: 0,
+            y: 130,
+            scrollTrigger: {
+              trigger: el,
+              start: "top top+=130",
+              toggleActions: "play none none reverse",
+            },
+          });
+        });
+      },
       all: function () {
         listRef.current.map((el, index) => {
           gsap.to("body", {
@@ -164,22 +198,9 @@ const Project = (props) => {
             }
           );
         });
-        listRef.current.map((el, index) => {
-          gsap.from(el, {
-            duration: 1,
-            opacity: 0,
-            y: 60,
-            scrollTrigger: {
-              trigger: ulRef.current,
-              start: "top bottom+=100",
-              toggleActions: "play none none reverse",
-            },
-          });
-        });
       },
     });
   }, [gsap]);
-  useEffect(() => {}, []);
 
   return (
     <Element name="project">
