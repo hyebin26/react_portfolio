@@ -67,7 +67,7 @@ const SocialIcon = (props) => {
           </SocialLink>
         </SocialList>
         <SocialList>
-          <SocialLink href="#">
+          <SocialLink href="https://faint-vacuum-1d5.notion.site/801dea06859546f88c55fb963d7bc548">
             <SiNotion />
             <SoclaiTitle>Notion</SoclaiTitle>
           </SocialLink>

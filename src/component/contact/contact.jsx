@@ -85,7 +85,7 @@ const Contact = (props) => {
         toggleActions: "play none none reverse",
       },
     });
-  }, []);
+  }, [contactRef]);
   return (
     <Element name="contact">
       <ContactWrapper ref={wrapperRef}>
@@ -115,7 +115,7 @@ const Contact = (props) => {
             </ContactSocialLink>
           </ContactSocial>
           <ContactSocial>
-            <ContactSocialLink href="#">
+            <ContactSocialLink href="https://faint-vacuum-1d5.notion.site/801dea06859546f88c55fb963d7bc548">
               <SiNotion />
             </ContactSocialLink>
           </ContactSocial>

@@ -132,7 +132,6 @@ const Project = (props) => {
     const element = ulRef.current;
     const totalLength = listRef.current.length;
     ScrollTrigger.saveStyles([element, listRef.current]);
-    const tl = gsap.timeline();
     ScrollTrigger.matchMedia({
       "(min-width: 1025px)": function () {
         gsap.to(listRef.current, {
@@ -158,6 +157,7 @@ const Project = (props) => {
               toggleActions: "play none none reverse",
             },
           });
+          return null;
         });
       },
       "(max-width:1025px)": function () {
@@ -172,6 +172,7 @@ const Project = (props) => {
               toggleActions: "play none none reverse",
             },
           });
+          return null;
         });
       },
       all: function () {
@@ -184,6 +185,7 @@ const Project = (props) => {
             },
             backgroundColor: "#222831",
           });
+          return null;
         });
         listRef.current.map((el, index) => {
           gsap.fromTo(
@@ -199,10 +201,11 @@ const Project = (props) => {
               display: "block",
             }
           );
+          return null;
         });
       },
     });
-  }, [gsap]);
+  }, [ulRef, listRef]);
 
   return (
     <Element name="project">
@@ -214,6 +217,7 @@ const Project = (props) => {
               <ProjectLi
                 ref={(e) => createLinetRefs(e, index)}
                 className="project1"
+                key={index}
               >
                 <ProjectImgBox>
                   <ProjectImg src={item.img} />

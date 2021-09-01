@@ -11,7 +11,7 @@ const AboutWrapper = styled.section`
   padding: 0 3rem;
   overflow: visible;
 `;
-const AboutContent = styled.p`
+const AboutContent = styled.div`
   font-family: "Gowun Dodum", sans-serif;
 `;
 const AboutTitle = styled.h1`
@@ -89,7 +89,7 @@ const About = (props) => {
         toggleActions: "play none none reverse",
       },
     });
-  }, [gsap]);
+  }, [aboutWrapperRef]);
   return (
     <Element name="about">
       <AboutWrapper ref={aboutWrapperRef}>

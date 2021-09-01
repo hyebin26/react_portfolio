@@ -20,7 +20,6 @@ const NavList = styled.li`
     }
   }
 `;
-const NavLink = styled.a``;
 
 const Nav = () => {
   return (

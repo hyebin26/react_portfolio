@@ -53,7 +53,7 @@ const Greet = (props) => {
           </Text>
         </TextContainer>
         <ImgContainer>
-          <GreetImg src="./img/d.jpg" alt="" />
+          <GreetImg src="./img/me.jpg" alt="hyebin" />
         </ImgContainer>
       </GreetWrapper>
     </Element>
