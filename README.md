@@ -1,8 +1,3 @@
-## react-portfolio
+## react_portfolio
 
-1. 에러지우기
-2. 노션 작성
-
-### 다음할 것
-
-1. 배포
+1. finally deploy #1
