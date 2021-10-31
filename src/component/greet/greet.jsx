@@ -47,13 +47,13 @@ const Greet = (props) => {
             페이지에 방문해주셔서 감사합니다.
             <ThumbImg
               className="greetImg"
-              src="./img/thumb.png"
+              src="https://hyebin26.github.io/react_portfolio/img/thumb.png"
               alt="thumbs up"
             />
           </Text>
         </TextContainer>
         <ImgContainer>
-          <GreetImg src="./img/me.jpg" alt="hyebin" />
+          <GreetImg src="https://hyebin26.github.io/react_portfolio/img/me.jpg" />
         </ImgContainer>
       </GreetWrapper>
     </Element>
