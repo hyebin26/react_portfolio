@@ -11,7 +11,7 @@
 - react-scroll
 - react-icons
 
-## :thumsup: 느낀점
+## :thumbsup:느낀점
 
 - GSAP를 적용하기위해 여러가지 예시를 접해보고 공부하면서 CSS에 대해서 아직 배워야 할 게 많다고 느꼈습니다.
 
