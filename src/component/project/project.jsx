@@ -63,7 +63,7 @@ const ProjectLi = styled.li`
   display: flex;
   align-items: center;
   @media only screen and (max-width: 1024px) {
-    display: block;
+    padding: 9rem 2rem;
   }
 `;
 const ProjectImg = styled.img`
@@ -78,6 +78,10 @@ const ProjectImgBox = styled.div`
 const ProjectBox = styled.div`
   display: flex;
   max-height: 600px;
+  @media only screen and (max-width: 1024px) {
+    max-height: 800px;
+    display: block;
+  }
 `;
 const ProjectTextBox = styled.div`
   flex: 1 0 45%;
@@ -117,6 +121,9 @@ const Category = styled.h1`
   top: 3rem;
   left: 2rem;
   color: #00eb7f;
+  @media only screen and (max-width: 1024px) {
+    top: 0rem;
+  }
 `;
 const Span = styled.span``;
 const TextSmallBox = styled.div`
@@ -158,7 +165,7 @@ const Project = (props) => {
             y: 130,
             scrollTrigger: {
               trigger: element,
-              start: "center bottom-=100",
+              start: "center bottom-=150",
               toggleActions: "play none none reverse",
             },
           });
