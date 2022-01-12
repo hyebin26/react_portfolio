@@ -39,13 +39,21 @@ const data = [
     sourceLink: "https://github.com/hyebin26/react_stockgame",
     img: "https://hyebin26.github.io/react_portfolio/img/stockgame.gif",
   },
+  {
+    title: "SPA Todolist",
+    content:
+      "리액트와 자바스크립트에 대해서 더 깊게 이해하기 위해 바닐라 자바스크립트로 만든 SPA TodoList입니다. 회원가입을 할 수 있고 로그인과 소셜로그인을 성공할 경우 collection을 설정하고 투두리스트를 작성할 수 있습니다. SPA(Single Page Application)을 구현하기 위해 리액트의 useState, render 그리고 React Router의 Link를 구현하였습니다. 데이터베이스는 Mysql을 사용했고 AWS EC2를 이용해서 배포하였고 ELB(Elastic Load Balancing)을 통해 HTTPS로 배포하였습니다.",
+    link: "https://www.hyebin-todo.site/",
+    sourceLink: "https://github.com/hyebin26/SPA-JS_todoList",
+    img: "https://hyebin26.github.io/react_portfolio/img/todolist.gif",
+  },
 ];
 
 const ProjectWrapper = styled.section`
   position: relative;
 `;
 const ProjectUl = styled.ul`
-  width: 400%;
+  width: 500%;
   height: 100vh;
   display: flex;
   flex-wrap: nowrap;
